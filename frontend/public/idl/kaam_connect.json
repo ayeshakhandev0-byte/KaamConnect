@@ -1,0 +1,124 @@
+{
+  "address": "HbmvzJKLNfJe5wVDhuFXbncAX9RGAg5x8owjvyuwdV3d",
+  "metadata": {
+    "name": "kaam_connect",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "complete_task",
+      "discriminator": [
+        109,
+        167,
+        192,
+        41,
+        129,
+        108,
+        220,
+        196
+      ],
+      "accounts": [
+        {
+          "name": "task_escrow",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_task",
+      "discriminator": [
+        194,
+        80,
+        6,
+        180,
+        232,
+        127,
+        48,
+        171
+      ],
+      "accounts": [
+        {
+          "name": "task_escrow",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "depositor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "recipient"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "TaskEscrow",
+      "discriminator": [
+        209,
+        72,
+        197,
+        54,
+        17,
+        55,
+        3,
+        187
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "TaskEscrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "depositor",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "is_completed",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ]
+}
